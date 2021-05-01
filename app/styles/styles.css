@@ -1,0 +1,54 @@
+[v-cloak] {
+    display: none;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.presets {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.preset-active {
+    background: aqua;
+}
+
+.container {
+    display: flex;
+    margin-top: 20px;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.currency {
+    display: flex;
+    flex: 0 0 100%;
+}
+
+.currency-symbol {
+    margin-right: 5px;
+}
+
+.value-input, .submit-btn {
+    flex: 1;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

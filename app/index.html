@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+
+<div id="app" class="app-container" v-cloak>
+  <div class="presets">
+    <button
+        v-for="p in convertedPresets"
+        @click="setPreset(p)"
+        :class="{'preset-active': p === suggestion}"
+    >
+      {{selectedCurrency.symbol}} {{p | formatCurrency}}
+    </button>
+  </div>
+  <div class="container">
+    <select
+        class="currency"
+        :value="selectedCurrencyIndex"
+        @change="onCurrencyChange"
+    >
+      <option v-for="(c, ind) in currencies" :value="ind">
+        {{c.code}} | {{c.name}}
+      </option>
+    </select>
+  </div>
+  <div class="container align-center">
+    <span class="currency-symbol">{{selectedCurrency.symbol}}</span>
+    <input
+        class="value-input"
+        type="text"
+        @keypress="onlyNumber"
+        :value="suggestion | formatCurrency"
+        @input.number="onCurrencyInput"
+    >
+  </div>
+  <div class="container">
+    <button class="submit-btn" @click="sendFunds" :disabled="loading">{{loading ? 'Sending...' : 'Submit'}}</button>
+  </div>
+</div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
